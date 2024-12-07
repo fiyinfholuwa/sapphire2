@@ -18,7 +18,7 @@ class HomeController extends Controller
         $projects  = Project::offset(0)->limit(3)->get();
         $posts  = Post::offset(0)->limit(3)->get();
         $testimonials = Testimonial::all();
-        return view('frontend.home', compact('testimonials', 'projects', 'posts'));
+        return view('frontend_new.home', compact('testimonials', 'projects', 'posts'));
     }
     public function testimonial_view(){
         return view('backend.testimonial_view');
@@ -64,7 +64,7 @@ class HomeController extends Controller
             'message' => 'Testimonial Successfully Deleted',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification); 
+        return redirect()->back()->with($notification);
     }
 
     public function testimonial_edit($id){

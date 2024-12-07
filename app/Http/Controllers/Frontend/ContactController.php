@@ -9,7 +9,7 @@ use App\Models\Contact;
 class ContactController extends Controller
 {
     public function contact(){
-        return view('frontend.contact');
+        return view('frontend_new.contact');
     }
 
     public function contact_save(Request $request){
@@ -48,6 +48,6 @@ class ContactController extends Controller
             'message' => 'Message Successfully Deleted',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification); 
+        return redirect()->back()->with($notification);
     }
 }

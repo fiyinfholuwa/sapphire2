@@ -9,6 +9,6 @@ class AboutController extends Controller
 {
     public function about(){
         $testimonials= Testimonial::all();
-        return view('frontend.about', compact('testimonials'));
+        return view('frontend_new.about', compact('testimonials'));
     }
 }
