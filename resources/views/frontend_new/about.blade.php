@@ -146,7 +146,7 @@
             <div class="container">
                 <h2>Partner With Us</h2>
                 <p>Choosing Obidiya Sapphire Enterprises means partnering with a team that's deeply invested in structural excellence. We're poised to apply our knowledge, innovation, and dedication to your project, promising a legacy of durability and resilience.</p>
-                <a href="contact.html" class="btn btn-primary cta-button">Get in Touch</a>
+                <a href="{{route('contact')}}" class="btn btn-primary cta-button">Get in Touch</a>
             </div>
         </section>
     </main>
