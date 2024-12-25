@@ -140,8 +140,14 @@
                     </li>
 
 {{--                    <li>--}}
-{{--                        <a href="blog.html" class="navbar-link" data-nav-link>Blog</a>--}}
+{{--                        <a href="{{route('blog')}}" class="navbar-link" data-nav-link>Blog</a>--}}
 {{--                    </li>--}}
+                    <li>
+                        <a href="{{route('register')}}" class="navbar-link" data-nav-link>Register</a>
+                    </li>
+                    <li>
+                        <a href="{{route('login')}}" class="navbar-link" data-nav-link>Login</a>
+                    </li>
 
                     <!--            <li>-->
                     <!--              <a href="#gallery" class="navbar-link" data-nav-link>Login</a>-->
