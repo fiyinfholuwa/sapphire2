@@ -12,18 +12,18 @@ class ProductController extends Controller
 {
     public function product(){
         $products  = Product::paginate(6);
-        return view('frontend.product', compact('products'));
+        return view('frontend_new.product', compact('products'));
     }
 
     public function product_detail($name){
         $product = Product::where('slug', '=', $name)->first();
-        return view('frontend.product_detail', compact('product'));
+        return view('frontend_new.product_detail', compact('product'));
     }
     public function product_view(){
         return view('backend.product_view');
     }
     public function product_add(Request $request){
-        
+
 
         $image = $request->file('image');
         $filename = time() . '_' . uniqid() . '.' . $image->getClientOriginalName();
@@ -80,7 +80,7 @@ class ProductController extends Controller
             'message' => 'product Successfully Deleted',
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification); 
+        return redirect()->back()->with($notification);
     }
 
     public function product_edit($id){

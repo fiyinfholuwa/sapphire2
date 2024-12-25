@@ -135,9 +135,9 @@
                         <a href="{{route('about')}}" class="navbar-link" data-nav-link>about us</a>
                     </li>
 
-{{--                    <li>--}}
-{{--                        <a href="product.html" class="navbar-link" data-nav-link>Product</a>--}}
-{{--                    </li>--}}
+                    <li>
+                        <a href="{{route('product')}}" class="navbar-link" data-nav-link>Products</a>
+                    </li>
 
 {{--                    <li>--}}
 {{--                        <a href="blog.html" class="navbar-link" data-nav-link>Blog</a>--}}
