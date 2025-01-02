@@ -177,7 +177,7 @@ class UserController extends Controller
 
 
     public function admin_user_delete($id){
-        if ($id = Auth::user()->id){
+        if ($id === Auth::user()->id){
             $notification = array(
                 'message' => 'You cannot delete this user because its currently looged in session',
                 'alert-type' => 'error'
