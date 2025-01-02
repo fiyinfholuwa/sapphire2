@@ -1,4 +1,6 @@
 @extends('backend.app')
+@section('title' , 'Edit Product')
+@section('page' , 'Edit Product')
 
 @section('content')
 
@@ -19,18 +21,9 @@
                                 {{$message}}
                                 @enderror
                                 </small>
-                               
+
                             </div>
-                            <div class="form-group">
-                                <label for="email2">Product  Content</label>
-                                <textarea type="text" rows="5" class="form-control" id="email2" required name="content" placeholder="Enter Product Description">{{$product->content}}</textarea>
-                                <small style="color:red; font-weight:500">
-                                @error('content')
-                                {{$message}}
-                                @enderror
-                                </small>
-                               
-                            </div>
+
                             <div class="form-group">
                                 <label for="email2">Product Price (#) </label>
                                 <input type="number" class="form-control" id="email2" required value="{{$product->price}}" name="price" placeholder="Enter Product Price">
@@ -39,7 +32,7 @@
                                 {{$message}}
                                 @enderror
                                 </small>
-                               
+
                             </div>
 
                             <div class="form-group">
@@ -50,7 +43,7 @@
                                 {{$message}}
                                 @enderror
                                 </small>
-                               
+
                             </div>
 
 
@@ -63,7 +56,7 @@
                                 {{$message}}
                                 @enderror
                                 </small>
-                               
+
                             </div>
 
                             <div class="form-group">
@@ -75,7 +68,7 @@
                                 {{$message}}
                                 @enderror
                                 </small>
-                               
+
                             </div>
 
                             <div class="form-group">
@@ -87,19 +80,29 @@
                                 {{$message}}
                                 @enderror
                                 </small>
-                               
+
                             </div>
-                        
-                        </div>
+
+                               <div class="form-group">
+                                   <label for="email2">Product  Content</label>
+                                   <textarea type="text" rows="5" class="form-control" id="myTextarea"   name="body_content" placeholder="Enter Product Description">{{$product->content}}</textarea>
+                                   <small style="color:red; font-weight:500">
+                                       @error('content')
+                                       {{$message}}
+                                       @enderror
+                                   </small>
+
+                               </div>
+
                         <div class="card-action">
                             <button class="btn btn-primary">Update Product</button>
-                
+
                         </div>
                            </form>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
 
 @endsection

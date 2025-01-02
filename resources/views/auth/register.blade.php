@@ -39,6 +39,23 @@
             </h6>
         </div>
 
+
+        <div class="form-group">
+            <input
+                type="number"
+                name="phone"
+                class="form-input"
+                placeholder="Enter Phone Number"
+
+            >
+            <i class="input-icon fas fa-phone"></i>
+            <h6 style="padding-top: 10px;">
+                @error('name')
+                {{$message}}
+                @enderror
+            </h6>
+        </div>
+
 <div class="form-group">
             <input
                 type="email"

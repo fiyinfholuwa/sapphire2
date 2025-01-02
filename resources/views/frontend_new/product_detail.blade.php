@@ -29,8 +29,23 @@
                         </div>
 
                         <div class="quantity">
-                            <input type="number" value="1" min="1">
-                            <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=+2347043552242&text=Hello%2C%20I%20am%20from%20Obidiya%20Sapphire%20Enterprise%20website,%20I%20need%20your%20service.">Make Order</a>
+                            @auth
+
+                            <form method="post" action="{{route('add.cart')}}">
+                                @csrf
+                                <input name="quantity" type="number" value="1" min="1">
+                                <input name="product_id" type="hidden" value="{{$product->id}}">
+                                @if($added)
+                                    <button type="button" class="btn btn-primary">Already Added to Cart</button>
+
+                                @else
+                                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                @endif
+                            </form>
+                            @else
+                                <input type="number" value="1" min="1">
+                                <a class="btn btn-primary" href="{{route('login')}}">Add to Cart</a>
+                            @endauth
                         </div>
                     </div>
                 </section>

@@ -93,4 +93,44 @@ Route::controller(ContactController::class)->group(function () {
     Route::get('/admin/contact/all', 'get_all_message')->name('contact.all');
     Route::post('/admin/contact/delete/{id}', 'message_delete')->name('contact.delete');
 });
+
+Route::middleware('auth')->group(function () {
+
+Route::controller(\App\Http\Controllers\UserController::class)->group(function () {
+    Route::get('/my/orders', 'my_order')->name('my.order');
+    Route::get('/all/orders', 'all_orders')->name('all.orders');
+    Route::get('/view/invoice/{id}', 'view_invoice')->name('view.invoice');
+    Route::get('/order/detail/{id}', 'order_detail')->name('order.detail');
+    Route::post('admin/order/status/{id}', 'admin_order_status')->name('admin.order.status');
+    Route::post('admin/payment/resolution/{id}', 'admin_payment_resolution')->name('admin.payment.resolution');
+    Route::get('/download/invoice/{id}', 'download_invoice')->name('download.invoice');
+    Route::get('admin/change/password', 'admin_change_password')->name('admin.change.password');
+    Route::get('admin/user/all', 'admin_user_all')->name('admin.user.all');
+    Route::post('/user/password/change/', 'user_password_change')->name('user.password.change');
+
+    Route::post('/profile/update/{id}', 'user_profile_update')->name('user.profile.update');
+    Route::post('/password/update', 'user_password_update')->name('user.password.update');
+    Route::get('/profile/view', 'user_profile_view')->name('my.profile');
+
+    Route::post('admin/user/delete/{id}', 'admin_user_delete')->name('admin.user.delete');
+    Route::post('admin/user/visibility/{id}', 'admin_user_visibility')->name('admin.user.visibility');
+    Route::post('admin/member/block/{id}', 'admin_member_block')->name('admin.member.block');
+    Route::post('admin/member/password/{id}', 'admin_member_password_change')->name('admin.member.password.change');
+});
+
+
+
+    Route::controller(ProductController::class)->group(function () {
+        Route::post('product/add/cart/', 'add_cart')->name('add.cart');
+        Route::get('product/cart/', 'product_cart')->name('cart');
+        Route::post('/cart/delete', 'cart_delete')->name('cart.delete');
+        Route::post('/cart/update', 'cart_update')->name('cart.update');
+        Route::post('/cart/checkout', 'cart_checkout')->name('cart.checkout');
+        Route::get('/repay/bill/{id}', 'repay_bill')->name('repay.bill');
+        Route::get('/payment/callback/paystack', 'paymentCallbackPaystack')->name('pay.callback.paystack');
+    });
+
+
+
+});
 require __DIR__.'/auth.php';

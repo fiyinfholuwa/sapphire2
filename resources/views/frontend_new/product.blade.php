@@ -7,10 +7,11 @@
 <div style="padding-top: 200px;" class="productlist padding_all">
 
     <div style="background-color: #ffffff; padding-top: 100px; padding-bottom: 100px;"  class="top_Product row">
+        <h3>All Products</h3>
         @if(count($products) > 0)
             @foreach($products as $product)
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-5">
                     <a href="{{ route('product.detail', $product->slug) }}">
                         <div style="border-radius: 20px; position: relative;" class="product">
                             <h2>{{ $product->title }}</h2>
@@ -22,10 +23,8 @@
                     </a>
                 </div>
 
-
-    </div>
-
             @endforeach
+                {{$products->links('frontend_new.paginate')}}
 
         @else
             <div><h3 class="text-center text-danger">No products Yet</h3></div>

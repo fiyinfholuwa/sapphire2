@@ -41,6 +41,21 @@
 <!--
   - #HEADER
 -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap');
+
+    * {
+        font-family: 'Poppins', 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    *{
+        p{
+            font-size: 16px !important;
+        }
+    }
+</style>
 
 <header
     class="header"
@@ -61,17 +76,22 @@
                 </div>
 
                 <div class="wrapper">
-                    <!--            <p class="helpline-title">For Further Inquires :</p>-->
-                    <!--            <p class="helpline-number">+01 (123) 4567 90</p>-->
+
                 </div>
 
             </a>
+
 
             <a href="#" class="logo">
                 <img style="height: 60px; width: 60px;" src="{{asset('frontend_new/assets/images/logo.png')}}" alt="Tourly logo">
             </a>
 
             <div class="header-btn-group">
+                @auth
+                <a href="{{route('cart')}}" class="helpline-box">
+                    <i style="color: #ffffff;" class="fa fa-cart-plus"><sup class="badge bg-danger">{{$cart_count}}</sup></i>
+                </a>
+                @endauth
 
                 <!--          <button class="search-btn" aria-label="Search">-->
                 <!--            <ion-icon name="search"></ion-icon>-->
@@ -139,15 +159,40 @@
                         <a href="{{route('product')}}" class="navbar-link" data-nav-link>Products</a>
                     </li>
 
+                    @auth
+                    <li>
+                        <a href="{{route('cart')}}" class="navbar-link" data-nav-link>Cart <sup class="badge bg-danger">{{$cart_count}}</sup></a>
+                    </li>
+                    @if(Auth::user()->user_type == 0)
+                            <li>
+                                <a href="{{route('my.order')}}" class="navbar-link" data-nav-link>My Orders</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('my.profile')}}" class="navbar-link" data-nav-link>My Profile</a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{route('dashboard')}}" class="navbar-link" data-nav-link>Dashboard</a>
+                            </li>
+                    @endif
+
+                       <li>
+                            <a style="color: red !important;" href="{{route('logout')}}" class="navbar-link" data-nav-link>Logout</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{route('register')}}" class="navbar-link" data-nav-link>Register</a>
+                        </li>
+                        <li>
+                            <a  href="{{route('login')}}" class="navbar-link " data-nav-link>Login</a>
+                        </li>
+
+                    @endauth
+
 {{--                    <li>--}}
 {{--                        <a href="{{route('blog')}}" class="navbar-link" data-nav-link>Blog</a>--}}
 {{--                    </li>--}}
-                    <li>
-                        <a href="{{route('register')}}" class="navbar-link" data-nav-link>Register</a>
-                    </li>
-                    <li>
-                        <a href="{{route('login')}}" class="navbar-link" data-nav-link>Login</a>
-                    </li>
 
                     <!--            <li>-->
                     <!--              <a href="#gallery" class="navbar-link" data-nav-link>Login</a>-->
