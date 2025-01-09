@@ -22,7 +22,7 @@
                     <div class="product-info">
                         <h3>{{$product->title}}</h3>
                         <h5>Price: #{{$product->price -  $product->price * $product->discount * 0.01 }} <del>{{$product->price}}</del></h5>
-                        <p>{{$product->content}}</p>
+                        <p>{!!  $product->content !!}</p>
 
                         <div class="sizes">
                             <p>Quantity:</p>

@@ -141,7 +141,7 @@
     }
 
     body {
-        min-height: 100vh;
+        min-height: 140vh;
         display: flex;
         justify-content: center;
         align-items: center;
